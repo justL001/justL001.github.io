@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My MBTI Profile 🧠</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      background: white;
+      padding: 22px;
+      border-radius: 18px;
+      width: 350px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    button {
+      background: #7b5cff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 15px;
+      background: #f3f0ff;
+      display: none;
+      animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .result h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>🧠 My MBTI</h2>
+
+  <select id="mbti">
+    <option value="">Pilih MBTI kamu</option>
+    <option>INTJ</option>
+    <option>INTP</option>
+    <option>INFJ</option>
+    <option>INFP</option>
+    <option>ISTJ</option>
+    <option>ISFJ</option>
+    <option>ISTP</option>
+    <option>ISFP</option>
+    <option>ENTJ</option>
+    <option>ENTP</option>
+    <option>ENFJ</option>
+    <option>ENFP</option>
+    <option>ESTJ</option>
+    <option>ESFJ</option>
+    <option>ESTP</option>
+    <option>ESFP</option>
+  </select>
+
+  <button onclick="showMBTI()">Lihat Profile ✨</button>
+
+  <div class="result" id="result">
+    <h3 id="title"></h3>
+    <p id="desc"></p>
+  </div>
+</div>
+
+<script>
+  function showMBTI() {
+    const mbti = document.getElementById("mbti").value;
+    const title = document.getElementById("title");
+    const desc = document.getElementById("desc");
+    const result = document.getElementById("result");
+
+    if (mbti === "") return;
+
+    const data = {
+      INFP: "Idealis, perasa, suka hal estetik dan dunia imajinasi 🌸",
+      INFJ: "Visioner, pendiam tapi deep banget 🖤",
+      INTJ: "Strategis, logis, dan independent 👑",
+      INTP: "Pemikir, penasaran, suka ngulik 🧠",
+      ENFP: "Ceria, kreatif, gampang tertarik hal baru 🌈",
+      ENFJ: "Leader alami, peduli orang lain 💖",
+      ENTJ: "Tegas, ambisius, born leader 🔥",
+      ENTP: "Debater, spontan, penuh ide ⚡",
+      ISFP: "Artistik, santai, cinta kebebasan 🎨",
+      ISTP: "Praktis, tenang, problem solver 🔧",
+      ISFJ: "Caregiver, setia, perhatian 🤍",
+      ISTJ: "Teratur, bertanggung jawab 📊",
+      ESFP: "Hidup party, ekspresif 🎉",
+      ESTP: "Berani, cepat, action first 🏎️",
+      ESFJ: "Ramah, sosial, people person 🫶",
+      ESTJ: "Disiplin, organizer sejati 🏗️"
+    };
+
+    title.innerText = mbti;
+    desc.innerText = data[mbti];
+    result.style.display = "block";
+  }
+</script>
+
+</body>
+</html>
